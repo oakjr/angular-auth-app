@@ -1,1 +1,6 @@
-<p>sidebar works!</p>
+
+<ng-container *ngIf="isLoggedIn">
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/sobre">Sobre</a>
+  <a routerLink="/contato">Contato</a>
+</ng-container>
