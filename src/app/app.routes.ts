@@ -6,7 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard';
 import { Contato } from './pages/contato/contato';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
   { path: 'contato', component: Contato, canActivate: [authGuard] },

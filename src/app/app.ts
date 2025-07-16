@@ -1,27 +1,41 @@
-import { Component, NgModule } from '@angular/core';
-import { BaseChartDirective } from 'ng2-charts';
-import { RouterOutlet } from '@angular/router';
-import { AppRoutingModule } from './app.routes';
+import { Component, OnInit } from '@angular/core';
+import { Auth } from './services/auth';
+import { UserService, User } from './services/user';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class App {
-  protected title = 'angular-auth-app';
+export class AppComponent implements OnInit {
+  user$!: Observable<User | null>;
+  isLoggedIn = false;
+
+  constructor(
+    private auth: Auth,
+    private userService: UserService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.user$ = this.userService.user$;
+    this.isLoggedIn = this.auth.isLoggedIn();
+
+    // Se o usuário estiver logado, atualiza o observable
+    if (this.isLoggedIn) {
+      const user = this.auth.getUser();
+      if (user) {
+       (user);
+      }
+    }
+  }
+
+  logout(): void {
+    this.auth.logout();
+    this.userService.clearUser();
+    this.isLoggedIn = false;
+    this.router.navigate(['/login']);
+  }
 }
-
-
-@NgModule({
-  declarations: [ /* seus componentes */ ],
-  imports: [
-    AppRoutingModule,
-    RouterOutlet,
-    BaseChartDirective,
-    // outros módulos como FormsModule, ReactiveFormsModule, Material, etc.
-  ],
-  bootstrap: [App]
-})
-export class AppModule { }
