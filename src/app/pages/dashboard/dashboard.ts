@@ -3,7 +3,7 @@ import { ChartConfiguration, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html'
+  templateUrl: './dashboard.html'
 })
 export class DashboardComponent {
   public barChartOptions: ChartConfiguration<'bar'>['options'] = {

@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import { AppComponent } from './app';
+import { App } from './app';
 import { LoginComponent } from './auth/login/login';
 import { DashboardComponent } from './pages/dashboard/dashboard';
 import { Contato } from './pages/contato/contato';
@@ -20,11 +20,12 @@ import { Header } from './core/header/header';
 import { Sidebar } from './core/sidebar/sidebar';
 import { Footer } from './core/footer/footer';
 import { AppRoutingModule } from './app.routes';
+import { BaseChartDirective } from 'ng2-charts';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    App,
     LoginComponent,
     DashboardComponent,
     Contato,
@@ -46,9 +47,10 @@ import { AppRoutingModule } from './app.routes';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    BaseChartDirective
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [App]
 })
 export class AppModule { }

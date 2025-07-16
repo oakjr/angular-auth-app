@@ -5,7 +5,7 @@ import { UserService } from '../../services/user';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.html'
 })
 export class LoginComponent {
   username = '';
