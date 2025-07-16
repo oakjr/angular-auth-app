@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.html',
+  styleUrls: ['./app.scss']
 })
 export class AppComponent implements OnInit {
   user$!: Observable<User | null>;

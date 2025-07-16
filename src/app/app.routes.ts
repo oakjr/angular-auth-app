@@ -6,6 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard';
 import { Contato } from './pages/contato/contato';
 
 
+
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
@@ -15,7 +16,9 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
